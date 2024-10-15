@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 include_once 'config.php';
 
@@ -124,3 +125,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </footer>
 </body>
 </html>
+=======
+ini kosong
+>>>>>>> c717e146e3abeb9873f752ec367b00c65d333b68

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 session_start();
 
@@ -243,3 +244,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['album_id'])) {
     </footer>
 </body>
 </html>
+=======
+ini review
+>>>>>>> c717e146e3abeb9873f752ec367b00c65d333b68

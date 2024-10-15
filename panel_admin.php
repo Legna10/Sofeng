@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -154,3 +155,6 @@
     </footer>
 </body>
 </html>
+=======
+ini admin
+>>>>>>> c717e146e3abeb9873f752ec367b00c65d333b68

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 include_once 'config.php';
 
@@ -12,11 +13,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+=======
+>>>>>>> c717e146e3abeb9873f752ec367b00c65d333b68
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>Add New Artist</title>
     <style>
         body {
@@ -98,3 +102,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </footer>
 </body>
 </html>
+=======
+    <title>Add New</title>
+    <style>
+        body {
+>>>>>>> c717e146e3abeb9873f752ec367b00c65d333b68
