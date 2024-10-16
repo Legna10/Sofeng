@@ -1,19 +1,27 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 881d20d53de2b979095c17201ab59d1f898efc7f
+<?php
+
+include_once 'config.php';
+
+$sql = "SELECT YEAR(release_date) AS release_year, GROUP_CONCAT(title) AS album_names 
+        FROM albums 
+        GROUP BY YEAR(release_date)
+        ORDER BY release_year DESC";
+
+$result = $conn->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - K-pop Album Review</title>
-
+    <title>Albums by Year - K-pop Album Review</title>
     <style>
         body {
             margin: 0px;
-            height: 10vh;;
+            height: 10vh;
             font-family: Georgia, serif;
+            background-color: palevioletred;
         }
         header {
             background-color: #cc3d68;
@@ -22,23 +30,22 @@
             height: 10vh;
             width: 100%;
             position: fixed;
+            top: 0;
         }
         main {
-            height: 90vh;
-            background-color: palevioletred;
-            padding: 25px;
+            background-color: pink;
         }
         footer {
             background-color: #cc3d68;
             color: white;
             padding: 6px;
-            position: fixed;
             bottom: 0;
             width: 100%;
+            position: fixed;
         }
         .kere a{
             font-size: 40px;
-            font-weight: bold;
+            font-weight: 680;
             margin-left: 18px;
             float: left;
             padding-top: 13px;
@@ -57,6 +64,7 @@
         .menu ul li a {
             text-decoration: none;
             color: white;
+            
         }
         .logout {
             float: right;
@@ -107,29 +115,27 @@
         .dropdown:hover .dropbtn {
             background-color: #cc3d68;
         }
-        main {
-            display: flex;
-            justify-content: space-between;
+        .container {
+            padding-top: 100px;
+            padding-bottom: 70px;
         }
-        #about-us {
-            flex: 1; 
-            margin-top: 145px;
-            font-size: 27px;
-            text-align: justify;
-            color: white;
-            margin-left: 40px;
-            margin-right: 70px;
+        h1, h2 {
+            color: #cc3d68;
+            text-align: center;
         }
-        img {
-            height: 400px;
-            margin-left: 20px;
-            margin-top: 100px;
-            margin-right: 50px;
+        ul {
+            list-style-type: none;
+            text-align: center;
+            padding: 0;
+            color: black;
+        }
+        li {
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
-    <header>
+<header>
         <nav>
             <div class="kere"><a href="about_us.php">K-Review</a></div>
                 <div class="menu">
@@ -146,28 +152,36 @@
                         </li>
                     </ul>
                 </div>
+            </div>
+            
         </nav>  
     </header>
-
     <main>
-        <section id="about-us">
-            <p>Welcome to K-Review, your ultimate destination for K-pop album reviews!
-            At K-Review, we are passionate about K-pop and dedicated to providing insightful reviews of the latest albums from your favorite artists.
-            Our team of music enthusiasts works tirelessly to bring you in-depth analysis, honest critiques, and engaging discussions about the vibrant world of K-pop music.
-            Whether you're a die-hard fan or new to the genre, we invite you to join us on this journey as we explore the captivating melodies, mesmerizing performances, and inspiring stories behind every K-pop album.</p>
-        </section>
-        <img src="pic/us.png">
+    <div class="container">
+        <h1>Albums by Year</h1>
+            <?php
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $year = $row["release_year"];
+                    $album_names = explode(',', $row["album_names"]);
+                    echo "<h2>$year</h2>";
+                    echo "<ul>";
+                    foreach ($album_names as $album_name) {
+                        echo "<li>$album_name</li>";
+                    }
+                    echo "</ul>";
+                }
+            } else {
+                echo "No albums found.";
+            }
+            ?>
+    </div>
     </main>
-
     <footer>
         <p>&copy; <?php echo date('Y'); ?> K-pop Album Review</p>
     </footer>
 </body>
 </html>
-<<<<<<< HEAD
-=======
-about
-
->>>>>>> f90bd36a467a4d2e12d6347750c0265843091332
-=======
->>>>>>> 881d20d53de2b979095c17201ab59d1f898efc7f
+<?php
+$conn->close();
+?>
