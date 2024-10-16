@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -146,3 +147,6 @@
     </footer>
 </body>
 </html>
+=======
+krev
+>>>>>>> f90bd36a467a4d2e12d6347750c0265843091332

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 session_start();
 
@@ -247,3 +248,6 @@ $review_result = mysqli_query($conn, $review_query);
     </footer>
 </body>
 </html>
+=======
+review
+>>>>>>> f90bd36a467a4d2e12d6347750c0265843091332

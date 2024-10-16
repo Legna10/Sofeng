@@ -4,36 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - K-pop Album Review</title>
-
+    <title>Home - K-pop Album Review</title>
     <style>
         body {
-            margin: 0px;
-            height: 10vh;;
+            margin: 0;
             font-family: Georgia, serif;
+            padding-bottom: 50px;
         }
         header {
             background-color: #cc3d68;
             color: white;
-            padding: 10px;
-            height: 10vh;
-            width: 100%;
+            padding: 7px;
             position: fixed;
+            width: 100%;
+            top: 0;
         }
         main {
-            height: 90vh;
-            background-color: palevioletred;
             padding: 25px;
+            padding-bottom: 70px;
+            min-height: 78vh;
+            background-color: palevioletred;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
         }
         footer {
             background-color: #cc3d68;
             color: white;
-            padding: 6px;
+            padding: 7px;
             position: fixed;
             bottom: 0;
             width: 100%;
         }
-        .kere a{
+        .kere a {
             font-size: 40px;
             font-weight: bold;
             margin-left: 18px;
@@ -43,13 +46,13 @@
             color: white;
         }
         .menu {
-            float:right;
-            font-size: 25px;
+            float: right;
+            font-size: 27px;
             padding-right: 20px;
         }
         .menu ul li {
             display: inline;
-            margin-right: 42px;
+            margin-right: 45px;
         }
         .menu ul li a {
             text-decoration: none;
@@ -104,64 +107,54 @@
         .dropdown:hover .dropbtn {
             background-color: #cc3d68;
         }
-        main {
-            display: flex;
-            justify-content: space-between;
-        }
-        #about-us {
-            flex: 1; 
-            margin-top: 145px;
-            font-size: 27px;
-            text-align: justify;
+        p.main-text {
             color: white;
-            margin-left: 40px;
-            margin-right: 70px;
+            font-size: 24px;
+            margin: 0 100px;
         }
-        img {
-            height: 400px;
-            margin-left: 20px;
-            margin-top: 100px;
-            margin-right: 50px;
-        }
+        
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <div class="kere"><a href="about_us.php">K-Review</a></div>
+            <div class="kere"><a href="panel_admin.php">K-Review</a></div>
                 <div class="menu">
                     <ul>
-                        <li><a href="albums.php">Album</a></li>
-                        <li><a href="album_list.php">List</a></li>
-                        <li><a href="about_us.php">About Us</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropbtn">Add</a>
+                            <div class="dropdown-content">
+                                <a href="add_artist.php">Artist</a>
+                                <a href="add_album.php">Album</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropbtn">Edit</a>
+                            <div class="dropdown-content">
+                                <a href="edit_artist.php">Artist</a>
+                                <a href="edit_album.php">Album</a>
+                            </div>
+                        </li>
+                        <li><a href="review.php">Review</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropbtn">Profile</a>
                             <div class="dropdown-content">
                                 <a href="logout.php">Logout</a>
-                                <a href="remove_account.php">Remove Account</a>
                             </div>
                         </li>
                     </ul>
                 </div>
+            </div>
         </nav>  
     </header>
-
     <main>
-        <section id="about-us">
-            <p>Welcome to K-Review, your ultimate destination for K-pop album reviews!
-            At K-Review, we are passionate about K-pop and dedicated to providing insightful reviews of the latest albums from your favorite artists.
-            Our team of music enthusiasts works tirelessly to bring you in-depth analysis, honest critiques, and engaging discussions about the vibrant world of K-pop music.
-            Whether you're a die-hard fan or new to the genre, we invite you to join us on this journey as we explore the captivating melodies, mesmerizing performances, and inspiring stories behind every K-pop album.</p>
-        </section>
-        <img src="pic/us.png">
+        <p class="main-text">Welcome to the Admin Panel of K-pop Album Review. Here, you have the power to shape the K-pop music landscape by managing artist and album information. Your dedication and efforts contribute to the vibrant world of K-pop. Keep up the great work!</p>
     </main>
-
     <footer>
         <p>&copy; <?php echo date('Y'); ?> K-pop Album Review</p>
     </footer>
 </body>
 </html>
 =======
-about
-
->>>>>>> f90bd36a467a4d2e12d6347750c0265843091332
+ini admin
+>>>>>>> c717e146e3abeb9873f752ec367b00c65d333b68
