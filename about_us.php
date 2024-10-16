@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 881d20d53de2b979095c17201ab59d1f898efc7f
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -161,7 +164,10 @@
     </footer>
 </body>
 </html>
+<<<<<<< HEAD
 =======
 about
 
 >>>>>>> f90bd36a467a4d2e12d6347750c0265843091332
+=======
+>>>>>>> 881d20d53de2b979095c17201ab59d1f898efc7f

@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 881d20d53de2b979095c17201ab59d1f898efc7f
 <?php
 session_start();
 
@@ -247,7 +250,11 @@ $review_result = mysqli_query($conn, $review_query);
         <p>&copy; <?php echo date('Y'); ?> K-pop Album Review</p>
     </footer>
 </body>
+<<<<<<< HEAD
 </html>
 =======
 review
 >>>>>>> f90bd36a467a4d2e12d6347750c0265843091332
+=======
+</html>
+>>>>>>> 881d20d53de2b979095c17201ab59d1f898efc7f
