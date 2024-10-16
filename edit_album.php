@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 include_once 'config.php';
 
@@ -140,3 +141,7 @@ function deleteAlbum($album_id) {
     </footer>
 </body>
 </html>
+=======
+ini album
+
+>>>>>>> 3c2a473db5cb5719303a4a371a2c0a18887e8adc

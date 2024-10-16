@@ -2,25 +2,8 @@
 <?php
 include_once 'config.php';
 
-if(isset($_GET['album_id'])) {
-    $album_id = $_GET['album_id'];
-
-    $sql = "SELECT * FROM albums WHERE album_id = $album_id";
-    $result = mysqli_query($conn, $sql);
-    $album = mysqli_fetch_assoc($result);
-
-    if (!$album) {
-        echo "Album not found.";
-        exit;
-    }
-} else {
-    echo "Album ID is not provided.";
-    exit;
-}
-
-$sql_artists = "SELECT * FROM artists";
-$result_artists = mysqli_query($conn, $sql_artists);
-$artists = mysqli_fetch_all($result_artists, MYSQLI_ASSOC);
+$sql = "SELECT * FROM artists";
+$result = mysqli_query($conn, $sql);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = $_POST['title'];
@@ -28,13 +11,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $release_date = $_POST['release_date'];
     $cover_image = $_POST['cover_image'];
 
-    $update_sql = "UPDATE albums SET title='$title', artist_id='$artist_id', release_date='$release_date', cover_image='$cover_image' WHERE album_id=$album_id";
-    if (mysqli_query($conn, $update_sql)) {
-        echo "Album updated successfully.";
-        header("Location: edit_album.php");
-        exit;
+    $insert_sql = "INSERT INTO albums (title, artist_id, release_date, cover_image) VALUES ('$title', '$artist_id', '$release_date', '$cover_image')";
+    if (mysqli_query($conn, $insert_sql)) {
+        echo "";
     } else {
-        echo "Error: " . $update_sql . "<br>" . mysqli_error($conn);
+        echo "Error: " . $insert_sql . "<br>" . mysqli_error($conn);
     }
 }
 ?>
@@ -43,31 +24,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Album</title>
+    <title>Add New Album</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: Georgia, serif;
             background-color: palevioletred;
         }
         header {
             background-color: #cc3d68;
             color: white;
             padding: 10px;
-            text-align: center;
+            height: 10vh;
+            width: 100%;
+            position: fixed;
+            top: 0;
         }
         main {
-            margin: 20px;
+            margin-top: 100px;
             padding: 20px;
             text-align: center;
+        }
+        footer {
+            background-color: #cc3d68;
+            color: white;
+            padding: 6px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
         form {
             background-color: #fff;
             padding: 20px;
             border-radius: 7px;
             display: inline-block;
-            text-align: left;
         }
         label {
             display: block;
@@ -90,42 +81,50 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             border-radius: 5px;
             box-sizing: border-box;
         }
-        button[type="submit"] {
+        button {
             padding: 10px;
             background-color: #cc3d68;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            margin-right: 10px;
         }
-        button[type="submit"]:hover {
+        button:hover {
             background-color: #b5335e;
+        }
+        h1{
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Edit Album</h1>
+        <h1>Add New Album</h1>
     </header>
     <main>
-        <form action="<?php echo $_SERVER['PHP_SELF'] . '?album_id=' . $album['album_id']; ?>" method="post">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <label for="title">Title:</label>
-            <input type="text" id="title" name="title" value="<?php echo $album['title']; ?>" required>
+            <input type="text" id="title" name="title" required>
             <label for="artist">Artist:</label>
             <select id="artist" name="artist" required>
-                <?php foreach ($artists as $artist) { ?>
-                    <option value="<?php echo $artist['artist_id']; ?>" <?php if ($album['artist_id'] == $artist['artist_id']) echo 'selected'; ?>><?php echo $artist['artist_name']; ?></option>
+                <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                    <option value="<?php echo $row['artist_id']; ?>"><?php echo $row['artist_name']; ?></option>
                 <?php } ?>
             </select>
             <label for="release_date">Release Date:</label>
-            <input type="date" id="release_date" name="release_date" value="<?php echo $album['release_date']; ?>" required>
+            <input type="date" id="release_date" name="release_date" required>
             <label for="cover_image">Cover Image URL:</label>
-            <input type="text" id="cover_image" name="cover_image" value="<?php echo $album['cover_image']; ?>" required>
-            <button type="submit">Update Album</button>
+            <input type="text" id="cover_image" name="cover_image" required>
+            <button type="submit">Add</button>
+            <button type="button" class="back-btn" onclick="window.location.href='panel_admin.php';">Back</button>
         </form>
     </main>
+    <footer>
+        <p>&copy; <?php echo date('Y'); ?> K-pop Album Review</p>
+    </footer>
 </body>
 </html>
 =======
-ini jgu
->>>>>>> 3c2a473db5cb5719303a4a371a2c0a18887e8adc
+ini kosong
+>>>>>>> c717e146e3abeb9873f752ec367b00c65d333b68

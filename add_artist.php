@@ -2,65 +2,59 @@
 <?php
 include_once 'config.php';
 
-if(isset($_GET['artist_id'])) {
-    $artist_id = $_GET['artist_id'];
-
-    $sql = "SELECT * FROM artists WHERE artist_id = $artist_id";
-    $result = mysqli_query($conn, $sql);
-    $artist = mysqli_fetch_assoc($result);
-
-    if (!$artist) {
-        echo "Artist not found.";
-        exit;
-    }
-} else {
-    echo "Artist ID is not provided.";
-    exit;
-}
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST['name'];
+    $artist_name = $_POST['artist_name'];
 
-    $update_sql = "UPDATE artists SET artist_name='$name' WHERE artist_id=$artist_id"; 
-    if (mysqli_query($conn, $update_sql)) {
-        echo "Artist updated successfully.";
-        header("Location: edit_artist.php");
-        exit;
+    $sql = "INSERT INTO artists (artist_name) VALUES ('$artist_name')";
+    if (mysqli_query($conn, $sql)) {
+        echo "";
     } else {
-        echo "Error: " . $update_sql . "<br>" . mysqli_error($conn);
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 }
 ?>
+=======
+>>>>>>> c717e146e3abeb9873f752ec367b00c65d333b68
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Artist</title>
+<<<<<<< HEAD
+    <title>Add New Artist</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: Georgia, serif;
             background-color: palevioletred;
         }
         header {
             background-color: #cc3d68;
             color: white;
             padding: 10px;
-            text-align: center;
+            height: 10vh;
+            width: 100%;
+            position: fixed;
+            top: 0;
         }
         main {
-            margin: 20px;
-            padding: 20px;
+            margin-top: 170px;
             text-align: center;
+        }
+        footer {
+            background-color: #cc3d68;
+            color: white;
+            padding: 6px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
         form {
             background-color: #fff;
             padding: 20px;
             border-radius: 7px;
             display: inline-block;
-            text-align: left;
         }
         label {
             display: block;
@@ -75,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             border-radius: 5px;
             box-sizing: border-box;
         }
-        button[type="submit"] {
+        button {
             padding: 10px;
             background-color: #cc3d68;
             color: white;
@@ -83,24 +77,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             border-radius: 5px;
             cursor: pointer;
         }
-        button[type="submit"]:hover {
+        button:hover {
             background-color: #b5335e;
+        }
+        h1{
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Edit Artist</h1>
+        <h1>Add New Artist</h1>
     </header>
     <main>
-        <form action="<?php echo $_SERVER['PHP_SELF'] . '?artist_id=' . $artist['artist_id']; ?>" method="post">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" value="<?php echo $artist['artist_name']; ?>" required>
-            <button type="submit">Update Artist</button>
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+            <label for="artist_name">Artist Name:</label>
+            <input type="text" id="artist_name" name="artist_name" required>
+            <button type="submit">Add</button>
+            <button type="button" class="back-btn" onclick="window.location.href='panel_admin.php';">Back</button>
         </form>
     </main>
+    <footer>
+        <p>&copy; <?php echo date('Y'); ?> K-pop Album Review</p>
+    </footer>
 </body>
 </html>
 =======
-yyy
->>>>>>> 3c2a473db5cb5719303a4a371a2c0a18887e8adc
+    <title>Add New</title>
+    <style>
+        body {
+>>>>>>> c717e146e3abeb9873f752ec367b00c65d333b68

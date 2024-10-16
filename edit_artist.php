@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 include_once 'config.php';
 
@@ -129,3 +130,6 @@ if (isset($_POST['delete'])) {
     </footer>
 </body>
 </html>
+=======
+yaa
+>>>>>>> 3c2a473db5cb5719303a4a371a2c0a18887e8adc
