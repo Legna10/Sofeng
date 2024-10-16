@@ -1,2 +1,0 @@
-# Sofeng-WMP
-Sofeng Assignment
